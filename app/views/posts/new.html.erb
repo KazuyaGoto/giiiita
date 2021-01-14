@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Giita</h1>
+  <br>
+  <h3>新規投稿</h3>
+  <%= form_for @post do |f| %>
+    <div class="row mb-3">
+      <%= f.label :title, class: "form-label" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :エラー文, class: "form-label" %>
+      <%= f.text_area :era, class: "form-control" %>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :参考にした記事のURL, class: "form-label" %>
+      <%= f.text_area :url, class: "form-control" %>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :どのようにデバックしたのか, class: "form-label" %>
+      <%= f.text_area :body, class: "form-control"%>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :写真を添付, class: "form-label" %>
+      <%= f.file_field :image, class: "form-control"%>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :あなたのコースは？（選択必須）, class: "col-form-label col-sm-2 pt-0" %>
+      <%= f.select :corse_id, [["Web", "1"], ["Game", "2"], ["iPhone", "3"]], include_blank: "選択して下さい", class: "form-control" %>
+    </div>
+    <%= f.submit "新規投稿する", class: "btn btn-outline-danger" %>
+  <% end %>
+  
+</div>

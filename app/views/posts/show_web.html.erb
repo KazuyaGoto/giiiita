@@ -1,0 +1,35 @@
+<div class="container"> 
+  <h1>Giita</h1>
+  <h3>投稿詳細</h3>
+  <% if t.corse_id == 1 %>
+    <div class="post">
+      <p><h4>タイトル</h4><%= @post.title %></p>
+      <p><h4>エラー分</h4><%= @post.era %></p>
+      <p><h4>デバック方法</h4><%= @post.body %></p>
+      <p><h4>参考にした記事のURL</h4><%= text_url_to_link(h(@post.url)).html_safe %></p>
+      <%= image_tag @post.image_url, size: "500×700×700" if @post.image? %>
+      <p><h4>投稿日時</h4><%= @post.created_at %></p>
+      <% if user_signed_in? %>
+          <% if current_user.already_liked?(@post) %>
+              <%= link_to post_like_path(@post), method: :delete do %>
+                <i class="fas fa-heart"></i><%= @post.likes.count %>
+              <% end %>
+          <% else %>
+              <%= link_to post_likes_path(@post), method: :post do %>
+
+                <i class="far fa-heart"></i><%= @post.likes.count %>
+              <% end %>
+          <% end %>
+      <% else %>
+    <i class="far fa-heart"></i><%= @post.likes.count %>
+      <% end %>
+    </div>
+
+    <h2>いいねしたユーザー</h2>
+    <% @post.liked_users.each do |user| %>
+      <li><%= user.slack_name %></li>
+    <% end %>
+
+    <%= link_to "編集する", edit_post_path(@post.id) %>
+  <% end %> 
+</div>  

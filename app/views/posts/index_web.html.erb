@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Giita</h1>
+    <h3>投稿を検索</h3>
+    <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+    <% end %>
+  <h3>投稿一覧</h3>
+  <br>
+ 
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% @posts_web.each do |t| %>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            
+            <div class="card-body">
+              <h5 class="card-title"><%= t.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= t.user.name %></h6>
+              <p class="card-text"><%= t.body %></p>
+              <a href="/posts/<%= t.id %>” class="card-link">詳しく見る</a>
+              
+            </div>
+          </div> 
+        </div>   
+        <% end %>
+    
+  </div>
+</div> 
