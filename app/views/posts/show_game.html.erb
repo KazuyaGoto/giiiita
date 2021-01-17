@@ -3,6 +3,7 @@
   <h3>投稿詳細</h3>
   <% if t.corse_id == 2 %>
     <div class="post">
+    <p><h4>投稿者</h4><%= @post.user.name %>(<%= @post.user.slack_name %>)</p>
       <p><h4>タイトル</h4><%= @post.title %></p>
       <p><h4>エラー分</h4><%= @post.era %></p>
       <p><h4>デバック方法</h4><%= @post.body %></p>
@@ -38,7 +39,8 @@
     <% @post.liked_users.each do |user| %>
       <li><%= user.slack_name %></li>
     <% end %>
-
-    <%= link_to "編集する", edit_post_path(@post.id) %>
+    <% if @post.user.id == current_user.id %>
+      <%= link_to "編集する", edit_post_path(@post.id) %>
+    <% end %>
   <% end %> 
 </div>  

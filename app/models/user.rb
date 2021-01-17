@@ -8,6 +8,7 @@ class User < ApplicationRecord
          has_many :liked_posts, through: :likes, source: :post
          validates :name, presence: true 
          validates :profile, length: { maximum: 200 } 
+         mount_uploader :image, ImageUploader
          #ユーザーがその投稿に対してすでに良いねしているのか判定
         def already_liked?(post)
           self.likes.exists?(post_id: post.id)

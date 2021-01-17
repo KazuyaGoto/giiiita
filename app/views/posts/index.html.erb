@@ -13,7 +13,7 @@
       <% @posts.each do |t| %>
         <div class="col">
           <div class="card" style="width: 18rem;">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="40%" y="50%" fill="#dee2e6" dy=".2em"></text></svg>
+            <class="card-img-top"><%= image_tag(t.user.image_url) if t.user.image.present? %>
             <div class="card-body">
               <h5 class="card-title"><%= t.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= t.user.name %></h6>
