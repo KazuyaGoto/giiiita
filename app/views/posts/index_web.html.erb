@@ -13,7 +13,6 @@
       <% @posts_web.each do |t| %>
         <div class="col">
           <div class="card" style="width: 18rem;">
-          <class="card-img-top"><%= image_tag(t.user.image_url) if t.user.image.present? %>
             <div class="card-body">
               <h5 class="card-title"><%= t.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= t.user.name %></h6>

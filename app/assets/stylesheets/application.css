@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.kubochan{
+  object-fit: contain;
+  width: 1000px;
+  height:1500px;
+}

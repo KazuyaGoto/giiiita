@@ -8,8 +8,8 @@
       <p><h4>エラー文</h4><%= @post.era %></p>
       <p><h4>デバック方法</h4><%= @post.body %></p>
       <p><h4>参考にした記事のURL</h4><%= text_url_to_link(h(@post.url)).html_safe %></p>
-      <%= image_tag @post.image_url if @post.image? %>
-      <p><h4>投稿日時</h4><%= @post.created_at %></p>
+      <%= image_tag @post.image_url , class: "kubochan" if @post.image? %>
+      <p><h4>投稿日時</h4><%= @post.created_at.to_s(:datetime_jp) %></p>
       <% if user_signed_in? %>
           <% if current_user.already_liked?(@post) %>
               <%= button_to post_like_path(@post), method: :delete do %>

@@ -11,9 +11,10 @@
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
       <% @posts.each do |t| %>
-        <div class="col">
+        <div class="col-4">
           <div class="card" style="width: 18rem;">
-            <class="card-img-top"><%= image_tag(t.user.image_url) if t.user.image.present? %>
+          <%# image_tag(t.user.image_url), class: "card-img-top"  %>
+          <%= image_tag t.user.image_url , class: "card-img-top" if t.user.image? %>
             <div class="card-body">
               <h5 class="card-title"><%= t.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= t.user.name %></h6>
