@@ -35,6 +35,7 @@ class PostsController < ApplicationController
         @posts_iPhone = Post.where("body LIKE ? ",'%' + params[:search] + '%')
     end
   end  
+  
   def index_game
     if params[:search] == nil
       @posts_game= Post.where(corse_id: 2)
